@@ -7,7 +7,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Startup Name Generator',
+      title: 'Flutter Name Generator',
+      theme: new ThemeData( // Add the 3 lines from here...
+        primaryColor: Colors.cyanAccent,
+      ), // ... to here.
+      debugShowCheckedModeBanner: false,
       home: new RandomWords(),
     );
   }
@@ -27,7 +31,7 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: const Text('Startup Name Generator'),
+        title: const Text('Flutter Name Generator'),
         actions: <Widget>[
           new IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved),
         ],
@@ -61,7 +65,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       trailing: new Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.red : null,
+        color: alreadySaved ? Colors.redAccent : null,
       ),
       onTap: () {
         setState(() {
@@ -97,7 +101,7 @@ class RandomWordsState extends State<RandomWords> {
               .toList();
           return new Scaffold(
             appBar: new AppBar(
-              title: const Text('Saved Suggestions'),
+              title: const Text('Saved Names'),
             ),
             body: new ListView(children: divided),
           );
